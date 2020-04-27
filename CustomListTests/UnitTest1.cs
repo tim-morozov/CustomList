@@ -51,19 +51,63 @@ namespace CustomListTests
             CustomList<int> testList = new CustomList<int>();
             int addedItem = 10;
             int itemToAdd = 20;
-            int expected = testList[1] == itemToAdd;
+            int itemToAdd1 = 40;
+            int expected = 20;
             int actual;
 
             testList.Add(addedItem);
             testList.Add(itemToAdd);
+            testList.Add(itemToAdd1);
             actual = testList[1];
 
             Assert.AreEqual(expected, actual);
         }
         // what happens to the last-added item?
+        [TestMethod]
+        public void Add_LocationOfLastAddedItem()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            int firstAdded = 10;
+            int lastAdded = 20;
+            int expected = 2;
+            int actual;
+
+            testList.Add(firstAdded);
+            testList.Add(lastAdded);
+            actual = testList.Count;
+
+            Assert.AreEqual(expected, actual);
+            
+        }
         // what happens to the Count?
+        
 
         // what happens if you add more items than the initial Capacity of the CustomList?
+       [TestMethod]
+        public void Add_WhenCapacityIsReached_CapacityIncreases()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            testList.Capacity = 4;
+            int actual;
+            int expected = 8;
+
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            actual = testList.Capacity;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Remove_WhenItemRemoved_CountDecrements()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            int actual;
+            int expected;
+        }
     }
 }
-}
+

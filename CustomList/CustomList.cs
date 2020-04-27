@@ -8,5 +8,15 @@ namespace CustomList
 {
    public class CustomList<T>
     {
+
+        public void Add(T item)
+        {
+
+        }
+
+        public void Remove(T item)
+        {
+
+        }
     }
 }
