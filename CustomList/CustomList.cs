@@ -61,7 +61,7 @@ namespace CustomList
             if(count >= capacity)
             {
                 T[] newArray = new T[capacity * 2];
-                for(int i = 0; i <= count; i++)
+                for(int i = 0; i < count; i++)
                 {
                     newArray[i] = items[i];
                 }
