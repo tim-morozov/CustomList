@@ -119,6 +119,82 @@ namespace CustomListTests
 
         }
 
+        [TestMethod]
+        public void Remove_WhenFirstItemRemoved_NextItemIsIndex0()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int expected = 20;
+            int actual;
+
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Remove(item1);
+            actual = testList[0];
+
+            Assert.AreEqual(expected, actual);
+        }
+         
+        [TestMethod]
+        public void Remove_WhenSeveralItemsRemoved_CountDecrements()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int expected = 1;
+            int actual;
+
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Remove(item3);
+            testList.Remove(item2);
+            actual = testList.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+        
+        [TestMethod]
+        public void Remove_WhenMultipleRemoved_CapacityStaysTheSame()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            testList.Capacity = 8;
+            int actual;
+            int expected = 8;
+
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            testList.Remove(5);
+            testList.Remove(4);
+            testList.Remove(3);
+            testList.Remove(2);
+            actual = testList.Capacity;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Remove_WhenAllItemsRemoved_CountIsZero()
+        {
+
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int expected = 0;
+            int actual;
+
+            testList.Add(item1);
+            testList.Remove(item1);
+            actual = testList.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 
