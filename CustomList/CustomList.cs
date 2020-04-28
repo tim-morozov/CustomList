@@ -56,7 +56,19 @@ namespace CustomList
 
         public void Add(T item)
         {
-
+            items[count] = item;
+            count++;
+            if(count >= capacity)
+            {
+                T[] newArray = new T[capacity * 2];
+                for(int i = 0; i <= count; i++)
+                {
+                    newArray[i] = items[i];
+                }
+                items = newArray;
+                capacity *= 2;
+            }
+           
         }
 
         public void Remove(T item)
