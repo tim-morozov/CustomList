@@ -195,6 +195,48 @@ namespace CustomListTests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Remove_WhenSomethingIsNotInList_IndexDoesntChange()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int expected = 10;
+            int actual;
+
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Remove(item3);
+            testList.Remove(item2);
+            testList.Remove(50);
+            actual = testList[0];
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Remove_WhenSomethingIsNotInList_CountDoesntChange()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int expected = 1;
+            int actual;
+
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Remove(item3);
+            testList.Remove(item2);
+            testList.Remove(50);
+            actual = testList.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 
