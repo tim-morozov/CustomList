@@ -7,9 +7,7 @@ namespace CustomListTests
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
+       
             [TestMethod]
         public void Add_AddingOneValueToEmptyCustomList_AddedValueGoesToIndexZero()
         {
@@ -105,9 +103,22 @@ namespace CustomListTests
         public void Remove_WhenItemRemoved_CountDecrements()
         {
             CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int expected = 2;
             int actual;
-            int expected;
+
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Remove(item3);
+            actual = testList.Count;
+
+            Assert.AreEqual(expected, actual);
+
         }
+
     }
 }
 
