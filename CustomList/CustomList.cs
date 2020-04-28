@@ -31,7 +31,27 @@ namespace CustomList
         {
             items = new T[4];
             count = 0;
-            capacity = 0;
+            capacity = 4;
+        }
+
+        public T this[int index]
+        {
+            get
+            {
+                if(index < 0 && index >= capacity)
+                {
+                    throw new IndexOutOfRangeException("Index out of range");   
+                }
+                return items[index];
+            }
+            set
+            {
+                if (index < 0 && index >= capacity)
+                {
+                    throw new IndexOutOfRangeException("Index out of range");
+                }
+                items[index] = value;
+            }
         }
 
         public void Add(T item)
