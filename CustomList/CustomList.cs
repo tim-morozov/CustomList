@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-   public class CustomList<T>
+   public class CustomList<T> : IEnumerable
     {
         private T[] items;
         private int count;
@@ -33,7 +34,7 @@ namespace CustomList
             count = 0;
             capacity = 4;
         }
-
+        //Indexer    
         public T this[int index]
         {
             get
@@ -73,7 +74,24 @@ namespace CustomList
 
         public void Remove(T item)
         {
+            T[] newArray = new T[capacity];
+            for(int i = 0; i < count; i++)
+            {
+                if(items[i] == item)
+                newArray[i] = items[i];
+                
+               
+            }
+            items = newArray;
+            count--;
+        }
 
+        public IEnumerator GetEnumerator()
+        {
+            for(int i = 0; i < count; i++)
+            {
+                yield return items[i];
+            }
         }
     }
 }

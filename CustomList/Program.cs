@@ -11,7 +11,8 @@ namespace CustomList
         static void Main(string[] args)
         {
             CustomList<int> newList = new CustomList<int>();
-            
+            List<int> newerList = new List<int>();
+            newerList.Remove()
            
         }
     }
