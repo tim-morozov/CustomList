@@ -11,8 +11,11 @@ namespace CustomList
         static void Main(string[] args)
         {
             CustomList<int> newList = new CustomList<int>();
-            List<int> newerList = new List<int>();
-            newerList.Remove()
+            newList.Add(4);
+            newList.Add(3);
+            newList.Add(1);
+            newList.Add(6);
+            newList.Remove(3);
            
         }
     }

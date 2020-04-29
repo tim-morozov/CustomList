@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,10 @@ namespace CustomList
             get
             {
                 return capacity;
+            }
+            set
+            {
+                capacity = value;
             }
         }
 
@@ -57,8 +62,6 @@ namespace CustomList
 
         public void Add(T item)
         {
-            items[count] = item;
-            count++;
             if(count >= capacity)
             {
                 T[] newArray = new T[capacity * 2];
@@ -69,21 +72,66 @@ namespace CustomList
                 items = newArray;
                 capacity *= 2;
             }
-           
+            items[count] = item;
+            count++;
         }
 
         public void Remove(T item)
         {
             T[] newArray = new T[capacity];
-            for(int i = 0; i < count; i++)
+            int index;
+           
+           index = Find(item);
+            if (index == capacity + 1)
             {
-                if(items[i] == item)
-                newArray[i] = items[i];
-                
-               
+                count = count;
             }
-            items = newArray;
-            count--;
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    if (i == index)
+                    {
+                        newArray[index] = items[i + 1];
+
+                    }
+                    else if (i > index)
+                    {
+                        newArray[i] = items[i + 1];
+                    }
+                    else
+                    {
+
+                        newArray[i] = items[i];
+
+                    }
+                }
+
+                items = newArray;
+                count--;
+            }
+        }
+
+        public int Find(T item)
+        {
+            int index = -1;
+            int i;
+            for ( i = 0; i < count; i++)
+            {
+                if (items[i].Equals(item))
+                {     
+                     index = i;
+                }
+                
+            }
+            if (index == -1)
+            {
+                return capacity + 1;
+            }
+            else
+            {
+                return index;
+            }
         }
 
         public IEnumerator GetEnumerator()

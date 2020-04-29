@@ -162,7 +162,6 @@ namespace CustomListTests
         public void Remove_WhenMultipleRemoved_CapacityStaysTheSame()
         {
             CustomList<int> testList = new CustomList<int>();
-            testList.Capacity = 8;
             int actual;
             int expected = 8;
 
