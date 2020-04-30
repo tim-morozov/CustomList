@@ -117,8 +117,7 @@ namespace CustomList
                 if (items[i].Equals(item))
                 {     
                      index = i;
-                }
-                
+                }                
             }
             if (index == -1)
             {

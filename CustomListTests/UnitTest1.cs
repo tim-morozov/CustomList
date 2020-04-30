@@ -85,7 +85,6 @@ namespace CustomListTests
         public void Add_WhenCapacityIsReached_CapacityIncreases()
         {
             CustomList<int> testList = new CustomList<int>();
-            
             int actual;
             int expected = 8;
 
