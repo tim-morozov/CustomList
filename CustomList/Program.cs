@@ -15,19 +15,22 @@ namespace CustomList
             newList.Add(3);
             newList.Add(1);
             newList.Add(6);
+            newList.Add(9);
 
             CustomList<int> newList2 = new CustomList<int>();
-            newList2.Add(7);
+            newList2.Add(4);
             newList2.Add(2);
             newList2.Add(3);
             newList2.Add(8);
+            newList2.Add(5);
+
 
             string str = newList.ToString();
             
 
             CustomList<int> newList3 = new CustomList<int>();
             newList3 = newList + newList2;
-
+            newList3 = newList - newList2;
            
            
         }

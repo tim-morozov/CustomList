@@ -78,7 +78,7 @@ namespace CustomList
 
         public void Remove(T item)
         {
-            T[] newArray = new T[capacity];
+            T[] newArray = new T[capacity + 1];
             int index;
            
            index = Find(item);
@@ -172,6 +172,26 @@ namespace CustomList
             }
 
             return newList;
+        }
+
+        public static CustomList<T> operator-(CustomList<T> a, CustomList<T> b)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            for(int i = 0; i < a.count; i++)
+            {
+                for(int j = 0; j < b.count; j++)
+                {
+                    if(a[i].Equals(b[j]))
+                    {
+                        a.Remove(a[i]);
+                        b.Remove(b[j]);
+                    }
+                   
+                }
+            }
+            newList = a + b;
+           
+            return newList; 
         }
     }
 }
