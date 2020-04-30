@@ -141,5 +141,10 @@ namespace CustomList
                 yield return items[i];
             }
         }
+
+        public override string ToString(T item)
+        {
+            
+        }
     }
 }
