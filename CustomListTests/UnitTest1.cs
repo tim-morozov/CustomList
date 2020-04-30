@@ -285,6 +285,40 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
+        public void OverloadMinus_WhenTwoListsSubtracted_NewCountIsCorrect()
+        {
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            int expected = 2;
+            int actual;
+
+            testList1.Add(1);
+            testList1.Add(2);
+            testList2.Add(1);
+            testList2.Add(4);
+            CustomList<int> testList3 = testList1 - testList2;
+            actual = testList3.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void OverloadMinus_WhenTwoListsSubtracted_LikeItemsRemoved()
+        {
+            CustomList<int> testList1 = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            int expected = 2;
+            int actual;
+
+            testList1.Add(1);
+            testList1.Add(2);
+            testList2.Add(1);
+            testList2.Add(4);
+            CustomList<int> testList3 = testList1 - testList2;
+            actual = testList3[0];
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
         public void Zip_ZipsBothListsTogether()
         {
             CustomList<int> testList1 = new CustomList<int>();
