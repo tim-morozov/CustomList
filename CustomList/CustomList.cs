@@ -142,9 +142,21 @@ namespace CustomList
             }
         }
 
-        public override string ToString(T item)
+        public override string ToString()
         {
-            
+            string newString = string.Empty;
+            foreach (T item in this)
+            {
+                if (string.IsNullOrEmpty(newString))
+                {
+                    newString += item.ToString();
+                }
+                else
+                {
+                    newString += item.ToString();
+                }
+            }
+            return newString;
         }
     }
 }

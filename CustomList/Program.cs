@@ -15,7 +15,11 @@ namespace CustomList
             newList.Add(3);
             newList.Add(1);
             newList.Add(6);
-            newList.Remove(3);
+            
+
+            string str = newList.ToString();
+             Console.WriteLine(str);
+            Console.ReadLine();
            
         }
     }
