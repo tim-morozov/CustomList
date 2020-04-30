@@ -1,0 +1,59 @@
+- Operator Overload
+
+Parameters
+CustomList<T> a, CustomList<T> b
+Requires two CustomList elements. A is then subracted from B.
+
+Returns
+It returns a new CustomList<T> object, which subtracts shared instances from each list, and returns a new list with only un-alike objects.
+
+Syntax
+The overload is used when a - is placed between to CustomList objects. It then creates a new CustomList object to return to where it was called.
+It then goes into a for loop that indexes through the a list, and compares it to the objects in the second list inside a nested for loop.
+If the first list's item is equal to the second list's item it removes both items from both lists, and moves on to the next index. When it is finished
+it adds both lists together and places it into the newList created in the beginning, and returns it.
+
+Example
+        
+public static CustomList<T> operator-(CustomList<T> a, CustomList<T> b)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            for(int i = 0; i < a.count; i++)
+            {
+                for(int j = 0; j < b.count; j++)
+                {
+                    if(a[i].Equals(b[j]))
+                    {
+                        a.Remove(a[i]);
+                        b.Remove(b[j]);
+                    }
+                   
+                }
+            }
+            newList = a + b;
+           
+            return newList; 
+        }
+ static void Main(string[] args)
+        {
+            CustomList<int> newList = new CustomList<int>();
+            newList.Add(4);
+            newList.Add(3);
+            newList.Add(1);
+            newList.Add(6);
+            newList.Add(9);
+            
+            CustomList<int> newList2 = new CustomList<int>();
+            newList2.Add(4);
+            newList2.Add(2);
+            newList2.Add(3);
+            newList2.Add(8);
+            newList2.Add(5);
+           
+            CustomList<int> newList3 = new CustomList<int>();
+            
+            newList3 = newList - newList2;
+           
+        }
+Output:
+newList3 = 1,6,9,2,8,5
