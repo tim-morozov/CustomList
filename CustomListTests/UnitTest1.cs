@@ -250,6 +250,24 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
+        public void ToString_WhenMultipleItemsAdded_AllItemsTurnedIntoString()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 30;
+            int item3 = 67;
+            string expected = "10, 30, 67";
+            string actual;
+
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            actual = testList.ToString();
+
+            Assert.AreEqual(expected, actual);
+        }
+    
+        [TestMethod]
         public void OverloadPlus_WhenTwoListsAdded_NewCountEstablished()
         {
             CustomList<int> testList1 = new CustomList<int>();
