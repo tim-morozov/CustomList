@@ -44,7 +44,7 @@ namespace CustomList
         {
             get
             {
-                if(index < 0 && index >= capacity)
+                if(index < 0 && index > capacity)
                 {
                     throw new IndexOutOfRangeException("Index out of range");   
                 }
@@ -52,7 +52,7 @@ namespace CustomList
             }
             set
             {
-                if (index < 0 && index >= capacity)
+                if (index < 0 && index > capacity)
                 {
                     throw new IndexOutOfRangeException("Index out of range");
                 }
@@ -153,12 +153,25 @@ namespace CustomList
                 }
                 else
                 {
-                    newString += item.ToString();
+                    newString += ", " + item.ToString();
                 }
             }
             return newString;
         }
 
+        public static CustomList<T> operator+(CustomList<T> a, CustomList<T> b)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            for (int i = 0; i < a.count; i++)
+            {
+                newList.Add(a[i]);
+            }
+            for(int i = 0; i < b.count; i++)
+            {
+                newList.Add(b[i]);
+            }
 
+            return newList;
+        }
     }
 }

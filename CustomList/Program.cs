@@ -15,11 +15,20 @@ namespace CustomList
             newList.Add(3);
             newList.Add(1);
             newList.Add(6);
-            
+
+            CustomList<int> newList2 = new CustomList<int>();
+            newList2.Add(7);
+            newList2.Add(2);
+            newList2.Add(3);
+            newList2.Add(8);
 
             string str = newList.ToString();
-             Console.WriteLine(str);
-            Console.ReadLine();
+            
+
+            CustomList<int> newList3 = new CustomList<int>();
+            newList3 = newList + newList2;
+
+           
            
         }
     }
