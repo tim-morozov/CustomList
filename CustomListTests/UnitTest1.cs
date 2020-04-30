@@ -237,18 +237,19 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
 
-        //[TestMethod]
-        //public void ToString_TurnsElementIntoAString()
-        //{
-        //    CustomList<int> testList = new CustomList<int>();
-        //    int item1 = 10;
-        //    string expected = "10";
-        //    string actual;
+        [TestMethod]
+        public void ToString_TurnsElementIntoAString()
+        {
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            string expected = "10";
+            string actual;
 
-        //   actual = testList.ToString(item1);
+            testList.Add(item1);
+            actual = testList.ToString();
 
-        //    Assert.AreEqual(expected, actual);
-        //}
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 
