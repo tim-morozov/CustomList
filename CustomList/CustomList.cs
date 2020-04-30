@@ -26,10 +26,6 @@ namespace CustomList
             {
                 return capacity;
             }
-            set
-            {
-                capacity = value;
-            }
         }
 
 
